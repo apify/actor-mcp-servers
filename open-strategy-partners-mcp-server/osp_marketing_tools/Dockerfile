@@ -19,6 +19,9 @@ ENV PATH="/app/.venv/bin:$PATH"
 # Copy dependency files
 COPY pyproject.toml requirements.txt ./
 
+# Supply-chain cooldown: only install versions published at least 7 days ago.
+ENV UV_EXCLUDE_NEWER="7 days"
+
 # Install dependencies
 RUN --mount=type=cache,target=/root/.cache/uv uv pip install -r requirements.txt
 
