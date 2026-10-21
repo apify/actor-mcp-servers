@@ -9,6 +9,9 @@ WORKDIR /app
 # Copy the entire repository to the container
 COPY . .
 
+# Supply-chain cooldown: only install versions uploaded at least 7 days ago (pip >= 26.1).
+ENV PIP_UPLOADED_PRIOR_TO=P7D
+
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 

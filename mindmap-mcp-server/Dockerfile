@@ -16,6 +16,9 @@ USER myuser
 # in order to speed up the build.
 COPY --chown=myuser:myuser requirements.txt ./
 
+# Supply-chain cooldown: only install versions uploaded at least 7 days ago (pip >= 26.1).
+ENV PIP_UPLOADED_PRIOR_TO=P7D
+
 # Install the packages specified in requirements.txt,
 # print the installed Python version, pip version,
 # and all installed packages with their versions for debugging.

@@ -82,3 +82,7 @@ warn_return_any = true
 warn_unreachable = true
 warn_unused_ignores = true
 ignore_missing_imports = true
+
+[tool.uv]
+# Supply-chain cooldown: only resolve versions published at least 7 days ago.
+exclude-newer = "7 days"
